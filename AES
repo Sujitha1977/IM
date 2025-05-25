@@ -1,0 +1,93 @@
+Experiment: AES Algorithm with 192-bit Key
+
+Aim:
+
+To implement an application that uses the AES (Advanced Encryption Standard) algorithm with a 192-bit key to encrypt and decrypt a plaintext message.
+
+
+---
+
+Algorithm:
+
+1. Start.
+
+
+2. Generate or define a 192-bit (24 bytes) secret key.
+
+
+3. Take plaintext input from the user or hard-code a sample.
+
+
+4. Pad the plaintext to make its length a multiple of 16 bytes.
+
+
+5. Create an AES cipher object in ECB mode using the 192-bit key.
+
+
+6. Encrypt the padded plaintext using the cipher.
+
+
+7. Encode the encrypted output using Base64 (for readable output).
+
+
+8. Decrypt the Base64-decoded ciphertext using the same cipher.
+
+
+9. Unpad the decrypted message to get the original plaintext.
+
+
+10. Display the original, encrypted, and decrypted messages.
+
+
+11. End.
+
+
+
+
+---
+
+Program (Python Code):
+
+from Crypto.Cipher import AES
+from Crypto.Random import get_random_bytes
+import base64
+
+# Function to pad the data to be multiple of 16 bytes
+def pad(data):
+    return data + b' ' * (16 - len(data) % 16)
+
+# Function to encrypt using AES with 192-bit key
+def encrypt_AES_192(data, key):
+    cipher = AES.new(key, AES.MODE_ECB)
+    encrypted = cipher.encrypt(pad(data))
+    return base64.b64encode(encrypted)
+
+# Function to decrypt
+def decrypt_AES_192(encrypted_data, key):
+    cipher = AES.new(key, AES.MODE_ECB)
+    decrypted = cipher.decrypt(base64.b64decode(encrypted_data))
+    return decrypted.rstrip(b' ')
+
+# 192-bit key (24 bytes)
+key = get_random_bytes(24)
+
+# Example plaintext
+plaintext = b"This is a secret message"
+print("Original Plaintext:", plaintext)
+
+# Encrypt
+encrypted = encrypt_AES_192(plaintext, key)
+print("Encrypted (Base64):", encrypted)
+
+# Decrypt
+decrypted = decrypt_AES_192(encrypted, key)
+print("Decrypted Plaintext:", decrypted)
+
+
+---
+
+Sample Output:
+
+Original Plaintext: b'This is a secret message'
+Encrypted (Base64): b'T9n6Qn+qI7oFbO6yEz9eb/2XOEQRC7uJb0DUCThum5o='
+Decrypted Plaintext: b'This is a secret message'
