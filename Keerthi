@@ -1,0 +1,54 @@
+Algorithm / Procedure:
+
+1. Step 1: Define the main problem clearly.
+E.g., "Customers are receiving their products late."
+
+
+2. Step 2: Ask "Why?" this problem occurs. Note the answer.
+
+
+3. Step 3: Take the answer from Step 2 and ask "Why?" again.
+
+
+4. Step 4: Repeat the process for 5 levels of Why, or until you reach the root cause.
+
+
+5. Step 5: Analyze the final reason and brainstorm UX design solutions based on user needs.
+
+
+
+
+---
+
+5 Whys Analysis (Execution):
+
+Why #	Question	Answer
+
+1	Why are products delivered late?	Because shipments are delayed from the warehouse.
+2	Why are shipments delayed from the warehouse?	Because order processing is slow.
+3	Why is order processing slow?	Because staff find the system difficult to use.
+4	Why do staff find it difficult to use?	Because the UI is confusing and lacks clarity.
+5	Why is the UI confusing?	Because it was not designed based on actual user feedback or testing.
+
+
+
+---
+
+Result:
+
+The root cause of shipment delays is poor UI/UX design in the warehouse order management system.
+
+
+---
+
+Suggested UX Solutions:
+
+Redesign the UI with clear navigation and visual hierarchy.
+
+Use color codes and icons to indicate order statuses.
+
+Add real-time status updates for orders.
+
+Conduct user testing with warehouse staff before finalizing the design.
+
+Provide a help guide or onboarding tutorial for new users.
